@@ -1,0 +1,50 @@
+# invoke rewrite engine
+RewriteEngine On
+RewriteBase /
+
+Options -Indexes
+<IfModule mod_negotiation.c>
+	Options -MultiViews
+</IfModule>
+
+# Create pretty URLs
+DirectorySlash Off
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+# End: Create pretty URLs
+
+# Specific redirections
+RewriteRule ^index\.html$ / [L,R=301]
+RewriteRule ^%22$ -22.html [L,R=301,QSD]
+RewriteCond %{QUERY_STRING} ^ref=themilsource\.com$
+RewriteRule ^$ ref-themilsource.html [L,R=301,QSD]
+RewriteRule ^food\spage\.htm$ foodpage.html [L,R=301,QSD]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^index\.htm$ index_htm.html [L,R=301,QSD]
+RewriteRule ^new/new\sstory\.htm$ new/newstory.html [L,R=301,QSD]
+RewriteRule ^new/NYT\sArticle\.htm$ new/NYTArticle.html [L,R=301,QSD]
+RewriteRule ^new/RE\sFabulous\sSalsa\.htm$ new/REFabulousSalsa.html [L,R=301,QSD]
+RewriteRule ^new/ummmm\summmm\sgood\!\!\.htm$ new/ummmmummmmgood--.html [L,R=301,QSD]
+RewriteRule ^new/ZAGAT\sSURVEY\sBY\sPOPULAR\sVOTE\.htm$ new/ZAGATSURVEYBYPOPULARVOTE.html [L,R=301,QSD]
+
+# Redirect all extensions to html
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.shtml$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.phtml$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.jhtml$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.htm$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.php$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.aspx$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.asp$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.jsp$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.apk$ $1.html [L,NC,R=301]
+# End: Redirect all extensions to html

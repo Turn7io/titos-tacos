@@ -1,0 +1,15 @@
+{
+  "short_name": "Tito's Tacos",
+  "name": "Tito's Tacos",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#fdff2e"
+}
